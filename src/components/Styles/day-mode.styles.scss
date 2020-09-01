@@ -1,9 +1,18 @@
 @import "./Varibles.scss";
 * {
   font-family: "Josefin Slab", serif;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
 }
 .day-mode__background {
   background: linear-gradient(to right, #ece9e6, #ffffff) !important;
+}
+.day-mode__toogle--container {
+  background-color: $non-photo-blue !important;
+}
+.day-mode__heading {
+  color: $eerie-black !important;
 }
 .day-mode__image {
   border-color: $orchid-crayola !important;
@@ -37,12 +46,7 @@
     border-color: $sapphire;
   }
 }
-.day-mode__toogle--container {
-  background-color: $non-photo-blue !important;
-}
-.day-mode__heading {
-  color: $eerie-black !important;
-}
+
 .day-mode__err-msg {
   color: $eerie-black !important;
 }

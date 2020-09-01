@@ -19,14 +19,8 @@
         id="input__img"
         class="input_img"
       />
-      <img
-        :src="imgUrl"
-        alt=" "
-        v-if="imgUrl"
-        class="img"
-        id="img1"
-        @load="OnImg"
-      />
+      <!--  To know real height and width of url image-->
+      <img :src="imgUrl" alt=" " v-if="imgUrl" id="img1" @load="OnImg" />
     </div>
     <p id="err" class="err_msg">{{ errMsg }}</p>
   </div>
@@ -45,6 +39,7 @@ export default {
   },
   methods: {
     OnImg(event) {
+      // Stores URL Image height and width
       this.img.height = event.target.height;
       this.img.width = event.target.width;
     }
@@ -53,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./Varibles.scss";
+@import "./Styles/Varibles.scss";
 img {
   position: relative;
   z-index: 0;
@@ -71,7 +66,7 @@ img {
   border: 4px solid $spanish-blue;
 }
 .faces {
-  border: 3px solid $majorelle-blue;
+  border: 3px solid $black-olive;
   border-radius: 5px;
   position: absolute;
   z-index: 10;

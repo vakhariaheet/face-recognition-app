@@ -8,7 +8,6 @@
       class="image-input"
       placeholder="Type image URL to recognize faces in the image"
     />
-    <label for="input">Type Email</label>
     <button class="image-submit" @click="onSubmit" id="input__btn">
       Submit
     </button>
@@ -25,6 +24,7 @@ export default {
   },
   methods: {
     onSubmit() {
+      //  Tells App Component that url is change
       this.$emit("update", this.Submit);
     }
   }
@@ -32,10 +32,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./Varibles.scss";
-label {
-  display: none;
-}
+@import "./Styles/Varibles.scss";
+
 .image {
   &-input {
     padding: 1rem;
