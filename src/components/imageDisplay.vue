@@ -1,6 +1,6 @@
 <template>
   <div class="mainContainer">
-    <div class="container" v-if="faces">
+    <div class="image-display__container" v-if="faces">
       <div
         class="faces"
         v-for="face in faces"
@@ -12,7 +12,13 @@
           left: `${(face.face_rectangle.left * 100) / img.width}%`
         }"
       ></div>
-      <img :src="imgUrl" alt=" " v-if="imgUrl" class="img" id="img" />
+      <img
+        :src="imgUrl"
+        alt=" "
+        v-if="imgUrl"
+        id="input__img"
+        class="input_img"
+      />
       <img
         :src="imgUrl"
         alt=" "
@@ -22,7 +28,7 @@
         @load="OnImg"
       />
     </div>
-    <p id="err">{{ errMsg }}</p>
+    <p id="err" class="err_msg">{{ errMsg }}</p>
   </div>
 </template>
 
@@ -51,10 +57,7 @@ export default {
 img {
   position: relative;
   z-index: 0;
-  border: 4px solid $spanish-blue;
   border-radius: 3rem;
-}
-#img {
   max-width: 500px;
   width: 100%;
   height: 100%;
@@ -64,13 +67,16 @@ img {
     filter: drop-shadow(2px 4px 6px black);
   }
 }
+.input_img {
+  border: 4px solid $spanish-blue;
+}
 .faces {
   border: 3px solid $majorelle-blue;
   border-radius: 5px;
   position: absolute;
   z-index: 10;
 }
-.container {
+.image-display__container {
   position: absolute;
 }
 .mainContainer {
@@ -83,7 +89,8 @@ img {
 #img1 {
   display: none;
 }
-#err {
+.err_msg {
+  transition: all 0.5s ease-out;
   font-size: 2rem;
   color: $yellow-orange-color-wheel;
 }

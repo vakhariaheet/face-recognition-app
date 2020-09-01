@@ -9,7 +9,9 @@
       placeholder="Type image URL to recognize faces in the image"
     />
     <label for="input">Type Email</label>
-    <button class="image-submit" @click="onSubmit">Submit</button>
+    <button class="image-submit" @click="onSubmit" id="input__btn">
+      Submit
+    </button>
   </div>
 </template>
 
@@ -29,14 +31,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "./Varibles.scss";
 label {
   display: none;
 }
 .image {
   &-input {
-    height: 100%;
     padding: 1rem;
     max-width: 700px;
     width: 100%;
@@ -46,9 +47,9 @@ label {
     border-radius: 30px 0 0 30px;
     color: #353531;
     border: 4px solid transparent;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
     &::placeholder {
-      color: #353531;
+      color: $black-olive;
     }
     &:hover {
       border: 4px solid $spanish-blue;
@@ -74,7 +75,7 @@ label {
     color: $black-olive;
     background-color: $yellow-orange-color-wheel;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
     border-left: 2px solid $black-olive;
     &:hover {
       color: $yellow-orange-color-wheel;

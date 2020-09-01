@@ -2,15 +2,18 @@
   <div id="app">
     <div class="mode">
       <div class="change-mode-btn">
-        <div class="change-mode-btn__toggle night-toggle"></div>
+        <div
+          class="change-mode-btn__toggle night-toggle move"
+          @click="onModeChange"
+        ></div>
       </div>
     </div>
 
-    <h1 class="heading">Face Recognition App</h1>
+    <h1 class="heading" id="heading">Face Recognition App</h1>
     <vueParticles
-      color="#ffffff"
+      color="#2B50AA"
       :particleOpacity="0.7"
-      linesColor="#ffffff"
+      linesColor="#2B50AA"
       :particlesNumber="100"
       shapeType="circle"
       :particleSize="5"
@@ -51,7 +54,8 @@ export default {
       url: "",
       img: "",
       faces: [],
-      errMsg: ""
+      errMsg: "",
+      isDayMode: false
     };
   },
   methods: {
@@ -97,6 +101,32 @@ export default {
         .catch(err => {
           console.log(err);
         });
+    },
+    onModeChange(event) {
+      const btn = document.getElementById("input__btn");
+      const input = document.getElementById("input");
+      const heading = document.getElementById("heading");
+      const image = document.getElementById("input__img");
+      const body = document.getElementById("body");
+      const favicon = document.getElementById("favicon");
+      const errMsg = document.getElementById("err");
+
+      event.target.classList.toggle("move");
+      heading.classList.toggle("day-mode__heading");
+      input.classList.toggle("day-mode__input");
+      body.classList.toggle("day-mode__background");
+      btn.classList.toggle("day-mode__btn");
+      event.path[1].classList.toggle("day-mode__toogle--container");
+      errMsg.classList.toggle("day-mode__err-msg");
+      this.isDayMode = !this.isDayMode;
+      if (image) {
+        image.classList.toggle("day-mode__image");
+      }
+      if (this.isDayMode) {
+        favicon.href = "favicon-light.png";
+      } else {
+        favicon.href = "favicon-dark.png";
+      }
     }
   }
 };
@@ -104,7 +134,8 @@ export default {
 
 <style lang="scss">
 @import "./components/Varibles.scss";
-body {
+@import "./components/day-mode.styles.scss";
+.body {
   background: linear-gradient(to right, #141e30, #243b55);
 }
 #app {
@@ -129,15 +160,17 @@ body {
   margin: 3rem 1rem;
   color: $flame;
   font-family: "Arima Madurai", cursive;
+  transition: all 0.5s ease-out;
 }
 
 .change-mode-btn {
-  background: #212121;
+  background: $sapphire;
   height: 50px;
   width: 100px;
   border-radius: 100px;
   display: flex;
   align-items: center;
+  transition: all 1.5s ease-out;
   &__toggle {
     height: 40px;
     width: 40px;
@@ -162,7 +195,6 @@ body {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
-  font-family: "Josefin Slab", serif;
 }
 .particles {
   position: fixed;

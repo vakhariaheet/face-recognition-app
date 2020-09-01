@@ -8,7 +8,7 @@ const particlesData = {
       }
     },
     color: {
-      value: "#ffffff"
+      value: "#000"
     },
     shape: {
       type: "circle",

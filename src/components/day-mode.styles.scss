@@ -1,0 +1,48 @@
+@import "./Varibles.scss";
+* {
+  font-family: "Josefin Slab", serif;
+}
+.day-mode__background {
+  background: linear-gradient(to right, #ece9e6, #ffffff) !important;
+}
+.day-mode__image {
+  border-color: $orchid-crayola !important;
+}
+.day-mode__input {
+  background-color: $orchid-crayola;
+  &::placeholder {
+    color: $eerie-black;
+  }
+  &:hover {
+    border-color: $sapphire;
+  }
+  &:focus,
+  &:active {
+    background-color: $sapphire;
+    color: $pale-pink;
+    &::placeholder {
+      color: $pale-pink;
+    }
+  }
+}
+.day-mode__btn {
+  background-color: $orchid-crayola;
+  color: $eerie-black;
+  &:hover {
+    background-color: $sapphire;
+    color: $pale-pink;
+  }
+  &:active,
+  &:focus {
+    border-color: $sapphire;
+  }
+}
+.day-mode__toogle--container {
+  background-color: $non-photo-blue !important;
+}
+.day-mode__heading {
+  color: $eerie-black !important;
+}
+.day-mode__err-msg {
+  color: $eerie-black !important;
+}
