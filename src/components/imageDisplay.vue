@@ -73,6 +73,7 @@ img {
 }
 .image-display__container {
   position: absolute;
+  padding: 1rem;
 }
 .mainContainer {
   margin-top: 3rem;

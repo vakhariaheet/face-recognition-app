@@ -61,10 +61,20 @@ export default {
         color: $yellow-orange-color-wheel;
       }
     }
+    @media (max-width: 600px) {
+      & {
+        height: max-content;
+        padding: 1rem;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 3rem;
+        font-size: 1rem;
+      }
+    }
   }
 
   &-submit {
-    border-radius: 0 30px 30px 0;
+    border-radius: 0 3rem 3rem 0;
     height: 100%;
     border: none;
     font-size: 1.5rem;
@@ -75,6 +85,17 @@ export default {
     cursor: pointer;
     transition: all 0.5s ease;
     border-left: 2px solid $black-olive;
+    @media (max-width: 600px) {
+      & {
+        height: max-content;
+        padding: 1rem;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 3rem;
+        margin: 1rem 0;
+        border-color: transparent;
+      }
+    }
     &:hover {
       color: $yellow-orange-color-wheel;
       background-color: $spanish-blue;
@@ -90,5 +111,10 @@ export default {
   height: 50px;
   display: flex;
   justify-content: center;
+  @media (max-width: 600px) {
+    & {
+      flex-direction: column;
+    }
+  }
 }
 </style>
